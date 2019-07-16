@@ -10,7 +10,6 @@ type intSet struct {
 
 func (s *intSet) add(x int) {
 	word, bit := x/64, uint(x%64)
-	fmt.Println("word = ", word, "   bit = ", bit)
 	for word >= len(s.words) {
 		s.words = append(s.words, 0)
 	}
@@ -40,6 +39,6 @@ func (s *intSet) elems() []int {
 
 func main() {
 	var x intSet
-	x.addAll(1, 2, 3, 4, 5)
+	x.addAll(357, 1, 32, 2, 64)
 	fmt.Println("elems method in use: ", x.elems())
 }
