@@ -17,7 +17,7 @@ func (r *customLimitReader) Read(result []byte) (n int, err error) {
 		n = r.n
 	}
 	err = io.EOF
-	return
+	return n, err
 }
 
 func limitReader(r io.Reader, n int) *customLimitReader {
