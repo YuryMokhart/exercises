@@ -8,19 +8,19 @@ import (
 
 type customLimitReader struct {
 	r io.Reader
-	n int64
+	n int
 }
 
 func (r *customLimitReader) Read(result []byte) (n int, err error) {
 	n, err = r.r.Read(result)
-	if n > int(r.n) {
-		n = int(r.n)
+	if n > r.n {
+		n = r.n
 	}
 	err = io.EOF
 	return
 }
 
-func limitReader(r io.Reader, n int64) *customLimitReader {
+func limitReader(r io.Reader, n int) *customLimitReader {
 	var clr customLimitReader
 	clr.r = r
 	clr.n = n
