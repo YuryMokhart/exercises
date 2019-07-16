@@ -7,9 +7,9 @@ import (
 
 type check []byte
 
-func (x check) Len() int           { return len(x) }
-func (x check) Less(i, j int) bool { return x[i] < x[j] }
-func (x check) Swap(i, j int)      { x[i], x[j] = x[j], x[i] }
+func (c check) Len() int           { return len(c) }
+func (c check) Less(i, j int) bool { return c[i] < c[j] }
+func (c check) Swap(i, j int)      { c[i], c[j] = c[j], c[i] }
 
 func isPalindrome(s sort.Interface) bool {
 	for i, j := 0, s.Len()-1; i < j; i, j = i+1, j-1 {
