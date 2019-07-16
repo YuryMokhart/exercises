@@ -28,9 +28,9 @@ func limitReader(r io.Reader, n int64) *customLimitReader {
 }
 
 func main() {
-	r := limitReader(strings.NewReader("That's a string, I need to read."), 16)
+	cr := limitReader(strings.NewReader("That's a string, I need to read."), 16)
 	result := make([]byte, 1024)
-	n, err := r.Read(result)
+	n, err := cr.Read(result)
 	result = result[:n]
 	fmt.Printf("String: %s\nerror: %s\nNumber of read bytes: %d\n", string(result), err, n)
 }
