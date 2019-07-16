@@ -32,5 +32,5 @@ func main() {
 	result := make([]byte, 1024)
 	n, err := r.Read(result)
 	result = result[:n]
-	fmt.Printf("Number of read bytes: %d\nerror: %s\nString: %s\n", n, err, string(result))
+	fmt.Printf("String: %s\nerror: %s\nNumber of read bytes: %d\n", string(result), err, n)
 }
