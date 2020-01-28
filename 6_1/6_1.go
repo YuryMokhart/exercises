@@ -16,7 +16,6 @@ func (s *intSet) has(x int) bool {
 
 func (s *intSet) add(x int) {
 	word, bit := x/64, uint(x%64)
-	fmt.Println("word = ", word, "   bit = ", bit)
 	for word >= len(s.words) {
 		s.words = append(s.words, 0)
 	}
